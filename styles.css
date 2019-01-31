@@ -1,0 +1,14 @@
+body {
+  background-color: grey;
+  margin: 0;
+  text-align: center;
+}
+
+canvas {
+  background-color: black;
+  border: 1px solid white;
+}
+
+.l-canvas__container {
+  padding: 24px;
+}
