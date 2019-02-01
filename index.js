@@ -68,15 +68,24 @@ let ship = kontra.sprite({
       this.rotation += 4
     }
 
+    // move the ship forward in the direction it's facing
     const cos = Math.cos(degreesToRadians(this.rotation))
     const sin = Math.sin(degreesToRadians(this.rotation))
 
     if (kontra.keys.pressed('up')) {
       this.ddx = cos * 0.1;
-      this.ddy = cos *0.1;
+      this.ddy = sin *0.1;
+    } else {
+      this.ddx = this.ddy = 0;
     }
 
     this.advance();
+    // set a max speed
+    const magnitude = Math.sqrt(this.dx * this.dx + this.dy * this.dy);
+    if (magnitude > 10) {
+      this.dx *= .95
+      this.dy *= .95;
+    }
  }
 })
 
